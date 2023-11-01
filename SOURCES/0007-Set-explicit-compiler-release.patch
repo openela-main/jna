@@ -1,0 +1,59 @@
+From a925b1196599f48bfbd85e7f37cfc7c1e9583a3f Mon Sep 17 00:00:00 2001
+From: Mikolaj Izdebski <mizdebsk@redhat.com>
+Date: Mon, 23 Jan 2023 14:53:34 +0100
+Subject: [PATCH 7/7] Set explicit compiler release
+
+---
+ build.xml | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/build.xml b/build.xml
+index 54e569c..f724bb0 100644
+--- a/build.xml
++++ b/build.xml
+@@ -101,9 +101,7 @@
+     JDK 11 is the last JDK, that supports creation of Java 6 compatible class
+     files.
+   -->
+-  <condition property="compatibility" value="1.6" else="9">
+-    <matches pattern="^1\.\d+$" string="${ant.java.version}"/>
+-  </condition>
++  <property name="compatibility" value="8"/>
+ 
+   <condition property="compatibility-check" value="true">
+     <equals arg1="${compatibility}" arg2="1.6" />
+@@ -394,6 +392,7 @@
+ 
+     <javac source="${compatibility}"
+            target="${compatibility}"
++           release="${compatibility}"
+            destdir="${classes}"
+            includeantruntime="false"
+            deprecation="on"
+@@ -405,6 +404,7 @@
+     <javac classpath="${compatibility}"
+            source="${compatibility}"
+            target="${compatibility}"
++           release="${compatibility}"
+            destdir="${classes}"
+            includeantruntime="false"
+            deprecation="on" 
+@@ -1071,6 +1071,7 @@ cd ..
+     <javac classpathref="compile-test.path"
+            source="${test.compatibility}"
+            target="${test.compatibility}"
++           release="${test.compatibility}"
+            destdir="${test.classes}"
+            includeantruntime="false"
+            includes="**/StructureFieldOrderInspector.java"
+@@ -1087,6 +1088,7 @@ cd ..
+     <javac classpathref="compile-test.path"
+            source="${test.compatibility}"
+            target="${test.compatibility}"
++           release="${test.compatibility}"
+            destdir="${test.classes}"
+            includeantruntime="false"
+            excludes="${tests.exclude-patterns}"
+-- 
+2.38.1
+
