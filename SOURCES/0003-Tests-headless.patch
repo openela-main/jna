@@ -1,0 +1,24 @@
+From 4b05abecb7b8a1edc0a32048ab12aba6ee1d6824 Mon Sep 17 00:00:00 2001
+From: Michael Simacek <msimacek@redhat.com>
+Date: Mon, 16 Jan 2017 11:32:32 +0100
+Subject: [PATCH 3/7] Tests headless
+
+---
+ build.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/build.xml b/build.xml
+index 0153731..8dbe173 100644
+--- a/build.xml
++++ b/build.xml
+@@ -1250,6 +1250,7 @@ cd ..
+       <sysproperty key="jna.nosys" value="true"/>
+       <sysproperty key="jna.builddir" file="${build}"/>
+       <sysproperty key="jna.nativedir" file="${build.native}"/>
++      <jvmarg value="-Djava.awt.headless=true"/>
+       <classpath><path refid="test.runpath"/></classpath>
+       <formatter type="brief" usefile="false"/>
+       <formatter type="xml"/>
+-- 
+2.38.1
+
