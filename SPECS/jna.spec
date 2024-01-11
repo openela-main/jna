@@ -1,6 +1,6 @@
 Name:           jna
 Version:        4.5.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Pure Java access to native libraries
 # Most of code is dual-licensed under either LGPL 2.1 only or Apache
 # License 2.0.  WeakIdentityHashMap.java was taken from Apache CXF,
@@ -132,6 +132,9 @@ install -m 755 build/native*/libjnidispatch*.so %{buildroot}%{_libdir}/%{name}/
 
 
 %changelog
+* Fri Aug 02 2019 Jakub Janco <jjanco@redhat.com> - 4.5.1-5
+- Onboard gating and move to AppStream
+
 * Mon May 28 2018 Michael Simacek <msimacek@redhat.com> - 4.5.1-4
 - Remove BR on reflections
 
